@@ -1,12 +1,19 @@
 import React from "react";
 
-function About() {
+function About(props) {
+   const { github, linkedin } = props.links || {};
+   const bio = props.bio;
   return (
     <div id="about">
       <h2>About Me</h2>
-      <p>Put the bio in here</p>
+       {bio && bio.trim() !== "" && <p>{bio}</p>}
       <img src="https://i.imgur.com/mV8PQxj.gif" alt="I made this" />
-      {/* add your <Links /> component here */}
+    <h1>Links</h1>
+    <a href={github}> {github || "GitHub Link"}</a>
+<br/>
+    <a href={linkedin}>{linkedin || "LinkedIn Link"}</a>
+    <br/>
+    
     </div>
   );
 }
